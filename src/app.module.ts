@@ -5,6 +5,7 @@ import { configValidationSchema } from 'config.schema';
 import { CategoryModule } from './category/category.module';
 import { MealModule } from './meal/meal.module';
 import { AuthModule } from './auth/auth.module';
+import { FavoriteModule } from './favorite/favorite.module';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { AuthModule } from './auth/auth.module';
     CategoryModule,
     MealModule,
     AuthModule,
+    FavoriteModule,
   ],
   controllers: [],
   providers: [],

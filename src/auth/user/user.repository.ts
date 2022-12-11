@@ -29,6 +29,7 @@ export class UserRepository extends Repository<User> {
       username,
       email,
       password: hashedPassword,
+      favorites: [],
     });
 
     try {
