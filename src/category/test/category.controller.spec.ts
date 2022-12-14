@@ -1,16 +1,21 @@
-import { HttpService } from '@nestjs/axios';
+import { HttpModule } from '@nestjs/axios';
+import { Test } from '@nestjs/testing';
 import { CategoryController } from '../category.controller';
 import { CategoryService } from '../category.service';
 
 describe('CategoryController', () => {
   let categoryController: CategoryController;
   let categoryService: CategoryService;
-  let httpService: HttpService;
 
-  beforeEach(() => {
-    httpService = new HttpService();
-    categoryService = new CategoryService(httpService);
-    categoryController = new CategoryController(categoryService);
+  beforeEach(async () => {
+    const moduleRef = await Test.createTestingModule({
+      imports: [HttpModule],
+      controllers: [CategoryController],
+      providers: [CategoryService],
+    }).compile();
+
+    categoryService = moduleRef.get<CategoryService>(CategoryService);
+    categoryController = moduleRef.get<CategoryController>(CategoryController);
   });
 
   const categoryList = [
