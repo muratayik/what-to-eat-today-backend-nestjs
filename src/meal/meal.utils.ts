@@ -38,8 +38,8 @@ const _generateIngredientList = (mealToRemap: any): string[] => {
   const ingredients = [];
   for (let index = 1; index < 21; index++) {
     if (
-      mealToRemap[`strIngredient${index}`].trim() ||
-      mealToRemap[`strMeasure${index}`].trim()
+      mealToRemap[`strIngredient${index}`]?.trim() ||
+      mealToRemap[`strMeasure${index}`]?.trim()
     ) {
       const newCombinedIngredient = `${mealToRemap[`strMeasure${index}`]} ${
         mealToRemap[`strIngredient${index}`]
